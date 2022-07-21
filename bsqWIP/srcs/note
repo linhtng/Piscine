@@ -1,0 +1,25 @@
+Function needed: 
+	int	get_input
+	int	**read_file(char *str): open file,  save file content into a string, close file
+	char   **make_array(char *str): convert the string to array of string, return char **array
+	int	validate_map_data(char **): 
+	int	**get_map(char **): return the int **map in which empty char are 0 and obstacle char are 1. 
+	int	**count_obstabcles_map(int **): take the int ** returned above, transform it so that each cell display the number of obstacle from the top left corner to that cell.
+			Example: let say the first four cells (0, 0) (0, 1), (1, 0), (1,1) are:
+				a b
+				c d 
+			the input int ** gives us” a, b, c, d” that all have original value as 0 || 1, now we give the d new value: d_new = c + b - a + d_orig. Now d show the number of obstacle from the top left corner until d. 
+			Do that for all cell in the map, return the new map. 
+	int	is_square(begin_cell c, size s)
+			int d = value of the bottom-right vertex of the square size s that has cell c as the top-left vertex.
+			if d > 0, i.e. there is obstacle in the square, return 0, 	
+			else return 1.
+	int	best_square_size(begin_cell c[r][c], size s)
+			Start from cell c with size = 1, 
+			while in range, 
+				check if (is_square(c, s))
+					size++;
+			recursive to check best_square_size(begin_cell c[r][c + 1], size s+1)
+			when reach the end of the map, save the largest square into a file, if more than one solution, save them as linked list
+	void	print_map(int **map)
+First To do : If no argument, read stdin, otherwise, read file and save the content as str, if more than one passed argument, save those str in array of str/linked list.
